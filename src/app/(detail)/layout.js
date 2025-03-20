@@ -1,6 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-
+import "../../app/globals.css";
 import { Rubik } from "next/font/google";
 
 const geistSans = Geist({
@@ -22,10 +21,10 @@ export const rubik = Rubik({ subsets: ["latin"], variable: "--font-rubik" });
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={`${rubik.className} antialiased`}>
+    <div className={`${rubik.className} antialiased`}>
+      <div style={{ width: "100%", height: "100%" }} className="bg-gray-50">
         {children}
-      </body>
-    </html>
+      </div>
+    </div>
   );
 }
