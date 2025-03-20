@@ -6,9 +6,9 @@ import DashboardComponent from '@/components/DashboardComponent';
 import BookCardComponent from './BookCardComponent';
 import { SelectItem } from '@/components/ui/select';
 
-const BookCategories = ({ books, categories , selectedCategory}) => {
+const BookCategories = ({ books, categories , selectedCategory, searchByTitle}) => {
   const router = useRouter();
-  
+
   const dropdown = categories.map(category => (
     <SelectItem key={category.id} value={category.id}>{category.book_cate_name}</SelectItem>
   ));
@@ -20,6 +20,7 @@ const BookCategories = ({ books, categories , selectedCategory}) => {
       router.push('/book-categories');
     }
   };
+
 
   return (
     <DashboardComponent dropdown={dropdown} onCategoryChange={handleCategoryChange}>

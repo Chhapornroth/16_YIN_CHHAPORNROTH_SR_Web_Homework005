@@ -24,3 +24,12 @@ export const findBookById = async (id) => {
         console.error(error);
     }
 }
+
+export const findBooksByTitle = async (title) => {
+    try {
+        const response = await fetch(`https://nextjs-homework005.vercel.app/api/book?search=${title}`);
+        return response.json();
+    } catch (error) {
+        console.error(error);
+    }
+}

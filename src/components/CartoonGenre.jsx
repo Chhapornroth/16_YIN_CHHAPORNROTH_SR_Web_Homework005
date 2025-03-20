@@ -3,10 +3,10 @@
 import { useRouter } from 'next/navigation';
 import React from 'react';
 import DashboardComponent from '@/components/DashboardComponent';
-import { CartoonCardComponent } from './CartoonCardComponent';
 import { SelectItem } from '@/components/ui/select';
+import { CartoonCardComponent } from './CartoonCardComponent';
 
-const CartoonGenre = ({ comicBook, genres, selectedGenre }) => {
+const CartoonGenre = ({ comicBooks, genres, selectedGenre }) => {
   const router = useRouter();
 
   const dropdown = genres.map(genre => (
@@ -24,7 +24,7 @@ const CartoonGenre = ({ comicBook, genres, selectedGenre }) => {
   return (
     <DashboardComponent dropdown={dropdown} onCategoryChange={handleCategoryChange}>
       <div key={selectedGenre === null ? "Old School Cartoons" : genres[selectedGenre - 1].cartoon_genre}  className='grid grid-cols-3 w-full place-items-center mx-auto pt-10'>
-        {comicBook.map(comic => (
+        {comicBooks.map(comic => (
           <CartoonCardComponent comicBook={comic} key={comic.id} />
         ))}
       </div>

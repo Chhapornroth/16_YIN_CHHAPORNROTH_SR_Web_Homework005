@@ -24,3 +24,12 @@ export const findComicBookById = async (id) => {
         console.error(error);
     }
 }
+
+export const findComicsByTitle = async (title) => {
+    try {
+        const response = await fetch(`https://nextjs-homework005.vercel.app/api/cartoon?search=${title}`);
+        return response.json();
+    } catch (error) {
+        console.error(error);
+    }
+}
